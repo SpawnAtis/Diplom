@@ -11,6 +11,11 @@
 % Рекомендовано для Linux (нужен scalable-cyrfonts-tex, подробности см. в fonts_linux.tex)
 % раскомментировать, чтобы использовать:
 \input{fonts_linux}% не забудьте закомментировать \input{fonts_windows}
+% \usepackage{placeins}
+
+% \usepackage{float}
+% \floatstyle{plaintop}
+% \restylefloat{table}
 
 % Зачем: Установка кодировки исходных файлов.
 \usepackage[utf8]{inputenc}
@@ -106,6 +111,11 @@
 \renewcommand{\l@subsection}{\@dottedtocline{2}{1.7em}{2.0em}}
 \makeatother
 
+% Зачем: убираем переносы в содержании
+\makeatletter
+\renewcommand{\@tocrmarg}{\@pnumwidth plus1fil}
+\makeatother
+
 
 % Зачем: Работа с колонтитулами
 \usepackage{fancyhdr} % пакет для установки колонтитулов
@@ -121,6 +131,7 @@
 \fancypagestyle{plain}{ 
     \fancyhf{}
     \rfoot{\thepage}}
+% \setlength{\footskip}{6mm}
 
 
 % Зачем: Задает стиль заголовков раздела жирным шрифтом, прописными буквами, без точки в конце
@@ -166,7 +177,7 @@
     {\z@}%
     {-1em \@plus -1ex \@minus -.2ex}%
     {1em \@plus .2ex}%
-    {\centering\hyphenpenalty=10000\normalfont\large\bfseries\MakeUppercase}%
+    {\centering\hyphenpenalty=10000\normalfont\bfseries\MakeUppercase}%
     }
 \makeatother
 
@@ -184,7 +195,7 @@
 
 
 % Зачем: Директория в которой будет происходить поиск картинок
-\graphicspath{{figures/}}
+\graphicspath{{attachments/}}
 
 
 % Зачем: Добавление подписей к рисункам
@@ -194,10 +205,14 @@
 % Зачем: чтобы работала \No в новых латехах
 \DeclareRobustCommand{\No}{\ifmmode{\nfss@text{\textnumero}}\else\textnumero\fi}
 
-% Зачем: поворот ячеек таблиц на 90 градусов
+% зачем: sidewaysfigure для поворота рисунков
 \usepackage{rotating}
+% Зачем: поворот ячеек таблиц на 90 градусов
+
 \DeclareRobustCommand{\povernut}[1]{\begin{sideways}{#1}\end{sideways}}
 
+% Зачем: заставляем работать ссылки (\footnote) в таблицах
+\usepackage{tablefootnote}
 
 % Зачем: когда в формулах много кириллических символов команда \text{} занимает много места
 \DeclareRobustCommand{\x}[1]{\text{#1}}
@@ -206,11 +221,14 @@
 % Зачем: Задание подписей, разделителя и нумерации частей рисунков
 % Почему: Пункт 2.5.5 Требований по оформлению пояснительной записки.
 \DeclareCaptionLabelFormat{stbfigure}{Рисунок #2}
+\DeclareCaptionLabelFormat{stbsubfigure}{#2}
 \DeclareCaptionLabelFormat{stbtable}{Таблица #2}
 \DeclareCaptionLabelSeparator{stb}{~--~}
+\DeclareCaptionLabelSeparator{stbsubfiguresep}{)~}
 \captionsetup{labelsep=stb}
-\captionsetup[figure]{labelformat=stbfigure,justification=centering}
-\captionsetup[table]{labelformat=stbtable,justification=raggedright}
+\captionsetup[subfigure]{labelformat=stbsubfigure,labelsep=stbsubfiguresep}
+\captionsetup[figure]{labelformat=stbfigure,justification=centering,skip=15pt}
+\captionsetup[table]{labelformat=stbtable,justification=raggedright,format=hang,skip=0pt}
 \renewcommand{\thesubfigure}{\asbuk{subfigure}}
 
 % Зачем: Окружения для оформления формул
@@ -249,6 +267,7 @@
     { 
     \\[\parsep]
     \endtabularx
+    \vspace{-3mm} % костыль, вдруг понадобится после "где"-области убрать пустую строку
     }
 
 
@@ -290,6 +309,7 @@
 % Почему: Пункт 2.3.8 Требований по оформлению пояснительной записки.
 \renewcommand{\labelenumi}{\asbuk{enumi})}
 \renewcommand{\labelenumii}{\arabic{enumii})}
+\renewcommand{\labelenumiii}{\Roman{enumiii})}
 
 % Зачем: Устанавливает отступ от границы документа до символа списка, чтобы этот отступ равнялся отступу параграфа
 % Почему: Пункт 2.3.5 Требований по оформлению пояснительной записки.
@@ -297,6 +317,7 @@
 \setlist[itemize,0]{itemindent=\parindent + 2.2ex,leftmargin=0ex,label=--}
 \setlist[enumerate,1]{itemindent=\parindent + 2.7ex,leftmargin=0ex}
 \setlist[enumerate,2]{itemindent=\parindent + \parindent - 2.7ex}
+\setlist[enumerate,3]{itemindent=\parindent + \parindent - 2.7ex}
 
 % Зачем: Включение номера раздела в номер формулы. Нумерация формул внутри раздела.
 \AtBeginDocument{\numberwithin{equation}{section}}
@@ -380,11 +401,73 @@
   basicstyle=\footnotesize\ttfamily
 }
 
-\lstdefinestyle{csharpstyle}{
-  language=[Sharp]C,
-  frame=lr,
-  rulecolor=\color{blue!80!black}}
+\lstdefinestyle{python}{
+   xleftmargin=0ex,
+   language=Python,
+   basicstyle=\footnotesize\ttfamily,
+   breaklines=true,
+   columns=fullflexible
+}
 
+\lstdefinestyle{sql}{
+  xleftmargin=0ex,
+  language=SQL,
+  basicstyle=\footnotesize\ttfamily,
+  breaklines=true,
+  columns=fullflexible
+}
+
+\lstdefinestyle{csharpstyle}{
+  xleftmargin=0ex,
+  language=[Sharp]C,
+  basicstyle=\footnotesize\ttfamily,
+  breaklines=true,
+  columns=fullflexible
+}
+
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\definecolor{white}{rgb}{1, 1, 1}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={break, case, catch, continue, debugger, default, delete, do, else, false, finally, for, function, if, in, instanceof, new, null, return, switch, this, throw, true, try, typeof, var, void, while, with},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  sensitive=true
+}
+
+\lstdefinestyle{js}{
+   xleftmargin=0ex,
+   language=JavaScript,
+   basicstyle=\footnotesize\ttfamily,
+   breaklines=true,
+   columns=fullflexible
+}
+
+\lstset{
+   language=JavaScript,
+   backgroundcolor=\color{white},
+   extendedchars=true,
+   basicstyle=\small\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=none,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=4,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
 
 % Зачем: Нумерация листингов в пределах секции
 \AtBeginDocument{\numberwithin{lstlisting}{section}}
@@ -399,7 +482,6 @@
 \setlength{\bibsep}{0em}
 
 % Магия для подсчета разнообразных объектов в документе
-\usepackage{lastpage}
 \usepackage{totcount}
 \regtotcounter{section}
 
@@ -436,14 +518,14 @@
 
 
 
-% Для оформления таблиц не влязящих на 1 страницу
+% Для оформления таблиц, не влазящих на 1 страницу
 \usepackage{longtable}
 
 % Для включения pdf документов в результирующий файл
 \usepackage{pdfpages}
 
 % Для использования знака градуса и других знаков
-% http://ctan.org/pkg/gensymb
+\usepackage{textcomp}
 \usepackage{gensymb}
 
 % Зачем: преобразовывать текст в верхний регистр командой MakeTextUppercase
@@ -471,4 +553,23 @@
      \setlength{\parsep}{10pt}%
    \fi
 }
+
+	% Зачем: изменение ориентации отдельных страниц.
+% Использование:
+% \begin{landscape}
+% ...
+% \end{landscape}
+\usepackage{lscape}
+% Зачем: одноименную команду нужно писать в конце 
+% макросов, чтобы компенсировать съедаемый латехом
+% пробел (там где нужно).
+\usepackage{xspace}
+% Зачем: если таблица или рисунок находится на отдельной странице,
+% то они должны находиться у верхнего края листа.
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
+% Чтобы посчитать общее число страниц.
+\usepackage{lastpage,refcount}
 
