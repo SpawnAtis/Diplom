@@ -217,15 +217,32 @@ Cуммарная прибыль за год рассчитывется как:
 	\end{aligned}
 \end{equation}
 
-В процессе использования нового ПО чистая прибыль в конечном итоге возмещает капитальные затраты. Однако полученные при этом суммы прибыли и затрат по годам приводят к единому времени -- расчетному году (за расчетный год принят 2017-й год) путем умножения результатов и затрат за каждый год на коэффициент дисконтирования $\alpha$. При расчете используются следующие коэффициенты: $2017~\text{г.} - \num{1}, 2018~\text{г.} - \num{0.8696}, 2019~\text{г.} - \num{0.7561}, 2020~\text{г.} - \num{0.6575}$. Все рассчитанные данные экономического эффекта сведены в таблицу~\ref{table:economics:effect:final_data}.
+\subsection{Расчет показателей эффективности}
+\label{sec:economics:effect}
 
-В результате технико-экономического обоснования применения ПС были получены следующие значения показателей эффективности:
+В ходе реализации ПС чистая прибыль в конечном итоге возмещает расходы на разработку.
+Однако полученные при этом суммы результатов (прибыли) и затрат по годам приводят к единому времени --- расчетному году (за расчетный год принят 2019 год) путем умножения результатов затрат за каждый год на коэффициент дисконтирования $\discontKSymbol$, который рассчитывается по формуле:
+\begin{equation}
+	\begin{aligned}
+		\discontKSymbol &= \text{1 + E}^{\text{t}_{\text{p}} - t},
+	\end{aligned}
+\end{equation}
+\begin{explanation}
+	где & $ E $ & норматив приведения равновременных затрат и результатов;\\
+		& $ \text{t}_{\text{p}} $ & номер года, результаты которого приводятся к расчетному;\\
+		& $ t $ & номер расчетного года.
+\end{explanation}
 
-\begin{itemize}
-	\item чистая прибыль разработчика составит $\netprofitabilitysymbol~=~\netprofitabilityvalue~\byn$;
-	\item затраты заказчика окупятся уже на четвертом году использования;
-	\item экономическая эффективность для заказчика, выраженная в виде чистого дисконтированного дохода, составит $\excessovercostswithtimingyearthreevalue~\byn$ за четыре года использования данного ПС; более высокий прирост прибыли заказчик получит по истечению данного срока.
-\end{itemize}
+На 27.06.2018 ставка рефинансирования состовляет обосновании~\cite{refinancingTax}
+Итого коэффициент дисконтирования по годам:
+\begin{equation}
+	\begin{aligned}
+		\text{ЧП}_\text{1} &= \profitperyearvalueone - \profitperyearvalueone \cdot \incomTaxRate = \clearProfitValueOne~\byn,\\
+		\text{ЧП}_\text{2} &= \profitperyearvaluetwo - \profitperyearvaluetwo \cdot \incomTaxRate = \clearProfitValueTwo~\byn,\\
+		\text{ЧП}_\text{3} &= \profitperyearvaluethree - \profitperyearvaluethree \cdot \incomTaxRate = \clearProfitValueThree~\byn,\\
+		\text{ЧП}_\text{4} &= \profitperyearvaluefour - \profitperyearvaluefour \cdot \incomTaxRate = \clearProfitValueFour~\byn
+	\end{aligned}
+\end{equation}
 
 % \begin{longtable}{{|>{\raggedright}m{0.32\textwidth} | 
 % 					>{\centering}m{0.1375\textwidth} | 
