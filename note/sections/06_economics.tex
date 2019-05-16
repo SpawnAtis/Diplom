@@ -1,231 +1,17 @@
 \input{sections/06_economics_macros}
 \input{sections/06_economics_calculations}
 
-\section{Технико-экономическое обоснование разработки и внедрения программного средства}
+\section{Технико-экономическое обоснование эффективности разработки и реализации программного средства}
 \label{sec:economics}
 
 \subsection{Характеристика программного средства}
 \label{sec:economics:description}
 
-Программное средство, разрабатываемое в рамках дипломного проекта, предназначено для автоматизации основных задач участников учебного процесса университетов: управление расписанием, заданиями и коммуникацией. Существует большое число средств, с помощью которых могут решаться перечисленные задачи, однако данное многообразие приводит к разрозненности рабочих окружений разных людей. Вследствие ее возникновения у всех участников учебного процесса появляется необходимость в совершении рутинных действий по настройке своей рабочей среды. Кроме того, различия в используемых средствах приводят к необходимости дополнительных действий по сопряжению интерфейсов коммуникации. Данные проблемы могут быть решены путем создания системы, которая бы объединяла и унифицировала задачи управления событиями календаря, задачами и контактами.
+%Программное средство, разрабатываемое в рамках дипломного проекта, предназначено для автоматизации основных задач участников учебного процесса университетов: управление расписанием, заданиями и коммуникацией. Существует большое число средств, с помощью которых могут решаться перечисленные задачи, однако данное многообразие приводит к разрозненности рабочих окружений разных людей. Вследствие ее возникновения у всех участников учебного процесса появляется необходимость в совершении рутинных действий по настройке своей рабочей среды. Кроме того, различия в используемых средствах приводят к необходимости дополнительных действий по сопряжению интерфейсов коммуникации. Данные проблемы могут быть решены путем создания системы, которая бы объединяла и унифицировала задачи управления событиями календаря, задачами и контактами.
 
-Разработки проектов программных средств связана со значительными затратами ресурсов. В связи с этим создание и реализация каждого проекта программного обеспечения нуждается в соответствующем тех\-ни\-ко-эко\-но\-ми\-чес\-ком обосновании~\cite{palitsyn}, которое и описывается в данном разделе.
+%Разработки проектов программных средств связана со значительными затратами ресурсов. В связи с этим создание и реализация каждого проекта программного обеспечения нуждается в соответствующем тех\-ни\-ко-эко\-но\-ми\-чес\-ком обосновании~\cite{palitsyn}, которое и описывается в данном разделе.
 
-\subsection{Определение объема и трудоемкости программного средства}
-\label{sec:economics:labouriousness}
-
-Целесообразность создания ПС требует проведения предварительной\linebreak экономической оценки. Экономический эффект у разработчика ПС зависит от объема инвестиций в разработку проекта, цены на готовый продукт и количества проданных копий, и проявляется в виде роста чистой прибыли. 
-
-Оценка стоимости создания ПС со стороны разработчика предполагает составление сметы затрат, вычисление цены и прибыли от реализации разрабатываемого программного средства. 
-
-Исходные данные, которые будут использоваться при расчете сметы затрат, представлены в таблице~\ref{table:economics:labouriousness:initial_data}.
-
-\begin{table}[!ht]
-\caption{Исходные данные}
-\label{table:economics:labouriousness:initial_data}
-\centering
-	\begin{tabular}{{ 
-	|>{\raggedright}m{0.6\textwidth} | 
-	 >{\centering}m{0.17\textwidth} | 
-	 >{\centering\arraybackslash}m{0.15\textwidth}|}}
-
-  	\hline
-	{\begin{center} Наименование показателя \end{center}} & Условное обозначение &	Значение \\
-  
-	\hline
-	Категория сложности & & 3 \\
-
-	\hline
-	Дополнительный коэффициент сложности & $\sum\limits_{i=1}^{n} \text{К}_i$ & \additionalcomplexityfactor \\
-
-	\hline
-	Степень охвата функций стандартными модулями & $\stdmodules$ & \stdmodulesfactor \\
-
-	\hline
-	Коэффициент новизны & $\novelty$ & \noveltyfactor \\
-
-	\hline
-	Количество дней в году & $\daysinyear$ & \daysinyearfactor \\
-
-	\hline
-	Количество праздничных дней в году & $\holidays$ & \holidaysfactor \\
-
-	\hline
-	Количество выходных дней в году & $\weekends$ & \weekendsfactor \\
-
-	\hline
-	Количество дней отпуска & $\vacationdays$ & \vacationdaysfactor \\
-
-	\hline
-	Количество разработчиков & $\developersnumber$ & \developersnumberfactor \\
-
-	\hline
-	Тарифная ставка первого разряда, \byn & $\firstratetariffsymbol$ & \firstratetariffvalue \\
-
-	\hline
-	Среднемесячная норма рабочего времени, ч. & $\averagehourspermonthsymbol$ & \averagehourspermonthvalue \\
-
-	\hline
-	Продолжительность рабочей смены, ч. & $\hourspershiftsymbol$ & \hourspershiftvalue \\
-
-	\hline
-	Коэффициент премирования & $\bonusratesymbol$ & \bonusratevalue \\
-
-	\hline
-	Норматив дополнительной заработной платы & $\additionalwageratesymbol$ & \additionalwageratevalue \\
-
-	\hline
-	Норматив отчислений в ФСЗН & $\ssfratesymbol $ & \ssfratevalue \\
-
-	\hline
-	Норматив отчислений по обязательному страхованию & $\insuranceratesymbol $ & \insuranceratevalue \\
-
-	\hline
-	Норматив расходов по статье <<Материалы>> & $\consumablesratesymbol $ & \consumablesratevalue \\
-
-	\hline
-	Норматив расходов по статье <<Машинное время>> & $\machinetimeratesymbol $ & \machinetimeratevalue \\
-
-	\hline
-	Понижающий коэффициент к статье <<Машинное время>> & & \machinetimereductionratevalue \\
-
-	\hline
-	Стоимость машино-часа, \byn & $\machinehourpricesymbol$ & \machinehourpricevalue \\
-
-	\hline
-	Норматив расходов по статье <<Научные командировки>> & $\businesstripratesymbol$ & \businesstripratevalue \\
-
-	\hline
-	Норматив расходов по статье <<Прочие затраты>> & $\otherchargesratesymbol$ & \otherchargesratevalue \\
-
-	\hline
-	Норматив расходов по статье <<Накладные расходы>> & $\overheadratesymbol$ & \overheadratevalue \\
-
-	\hline
-	Уровень рентабельности & $\profitabilityratesymbol$ & \profitabilityratevalue \\
-
-	\hline
-	Ставка НДС & $\vatratesymbol$ & \vatratevalue \\
-
-	\hline
-	Норматив затрат на освоение ПО & $\deploymentratesymbol$ & \deploymentratevalue \\
-
-	\hline
-	Норматив затрат на сопровождение ПО & $\maintenanceratesymbol$ & \maintenanceratevalue \\
-
-	\hline
-	\end{tabular}
-\end{table}
-
-Перед определением сметы затрат на разработку программного средства необходимо определить его объём. Однако, на стадии ТЭО нет возможности рассчитать точные объемы функций, вместо этого с помощью применения действующих нормативов рассчитываются прогнозные оценки. 
-
-В качестве метрики измерения объема программных средств используется строка их исходного кода (LOC -- lines of code). Данная метрика широко распространена, поскольку она непосредственно связана с конечным продуктом, может применяться на всём протяжении проекта и, кроме того, может использоваться для сопоставления размеров программного обеспечения. Далее под строкой исходного кода будем понимать количество исполняемых операторов.
-
-Расчет объема функций программного средства и общего объема приведен в таблице~\ref{table:economics:labouriousness:function_sizes}. 
-
-\begin{table}[!ht]
-\caption{Перечень и объём функций программного модуля}
-\label{table:economics:labouriousness:function_sizes}
-\centering
-	\begin{tabular}{{ | >{\centering}m{0.12\textwidth} | 
-	>{\raggedright}m{0.6\textwidth} | 
-	>{\centering\arraybackslash}m{0.2\textwidth}|}}
-
-  	\hline
-	\No{} функции & 
-	{\begin{center} Наименование (содержание) \end{center}} & 
-	Объём функции, LoC \\
-  
-	\hline 
-	101 & Организация ввода информации & \num{100} \\
-
-	\hline
-	102 & Контроль, предварительная обработка и ввод информации & \num{500} \\
-
-	\hline
-	109 & Организация ввода/вывода информации в интерактивном режиме & \num{190} \\
-
-	\hline
-	111 & Управление вводом/выводом & \num{2600} \\
-
-	\hline
-	204 & Обработка наборов и записей базы данных & \num{1900} \\
-
-	\hline
-	207 & Манипулирование данными & \num{8000} \\
-
-	\hline
-	208 & Организация поиска и поиск в БД & \num{7500} \\
-
-	\hline
-	304 & Обслуживание файлов & \num{500} \\
-
-	\hline
-	305 & Обработка файлов & \num{800} \\
-
-	\hline
-	309 & Формирование файла & \num{1000} \\
-
-	\hline
-	506 & Обработка ошибочных и сбойных ситуаций & \num{500} \\
-
-	\hline
-	507 & Обеспечение интерфейса между компонентами & \num{750} \\
-
-	\hline
-	601 & Отладка прикладных программ в интерактивном режиме & \num{4300} \\
-
-	\hline
-	707 & Графический вывод результатов & \num{300} \\
-
-	\hline
-	 & Общий объем & \totallocfactor \\
-
-	\hline
-	\end{tabular}
-\end{table}
-
-Исходя из определенной 3-ей категории сложности и общего объема ПС $\totalloc = \totallocfactor$, нормативная трудоемкость $\normativelaboriousness = \normativelaboriousnessfactor~\text{чел./д.}$~\cite[приложение 3]{palitsyn}. Перед определением общей трудоемкости разработки необходимо определить несколько коэффициентов.
-
-Коэффициент сложности, который учитывает дополнительные затраты труда, связанные с обеспечением интерактивного доступа и хранения, и поиска данных в сложных структурах~\cite[приложение 4, таблица П.4.2]{palitsyn}
-
-\begin{equation}
-	\complexity = 1 + \sum_{i=1}^{n} \text{К}_i = 1 + \num{0.06} + \num{0.07} = \complexityfactor,
-\end{equation}
-\begin{explanation}
-где & $ \text{К}_i $ & коэффициент, соответствующий степени повышения сложности за счет конкретной характеристики;\\
-& $ n $ & количество учитываемых характеристик.
-\end{explanation}
-
-Коэффициент $\stdmodules$, учитывающий степень использования при разработке стандартных модулей, для разрабатываемого приложения, в котором степень охвата планируется на уровне около 50\%, примем равным \num{0.7}~\cite[при\-ло\-же\-ние 4, таб\-ли\-ца П.4.5]{palitsyn}.
-
-Коэффициент новизны разрабатываемого программного средства $\novelty$ примем равным \noveltyfactor, так как разрабатываемое ПС принадлежит определенному параметрическому ряду существующих программных средств~\cite[приложение 4, таблица П.4.4]{palitsyn}.
-
-Исходя из выбранных коэффициентов, общая трудоемкость разработки $ \totallaboriousness = \normativelaboriousness \cdot \complexity \cdot \stdmodules \cdot \novelty = \normativelaboriousnessfactor \cdot \complexityfactor \cdot \stdmodulesfactor \cdot \noveltyfactor = \totallaboriousnessfactor~\text{чел./д.}$
-
-Для расчета срока разработки проекта примем число разработчиков $\developersnumber = \developersnumberfactor$. Исходя из комментария к постановлению Министерства труда и социальной защиты Республики Беларусь от 05.10.16 №54 <<Об установлении
-расчетной нормы рабочего времени на 2017 год>>~\cite{labour_calendar}, эффективный фонд времени работы одного человека составит
-\begin{equation}
-	\effectivetimefund = \daysinyear - \holidays - \weekends - \vacationdays = \num{\daysInYear} - \num{\redLettersDaysInYear} - \num{\weekendDaysInYear} - \num{\vacationDaysInYear} = \num{\workingDaysInYear}~\text{д.},
-\end{equation}
-\begin{explanation}
-где & $ \text{Д}_\text{г} $ & количество дней в году;\\
-& $ \text{Д}_\text{п} $ & количество праздничных дней в году;\\
-& $ \text{Д}_\text{в} $ & количество выходных дней в году;\\
-& $ \text{Д}_\text{о} $ & количество дней отпуска.
-\end{explanation}
-
-Тогда трудоемкость разработки проекта
-\begin{equation}
-	\developmenttime = \frac{\totallaboriousness}{\developersnumber \cdot \effectivetimefund} = \frac{\totallaboriousnessfactor}{\developersnumberfactor \cdot \effectivetimefundfactor} = \developmenttimeyearsfactor~\text{г.} = \developmenttimefactor~\text{д.}
-\end{equation}
-
-Исходя из того, что разработкой будет заниматься $\developersnumberfactor$ человека, можно запланировать фонд рабочего времени для каждого исполнителя
-\begin{equation}
-	\developertimefundsymbol = \frac{\developmenttime}{\developersnumber} = \frac{\developmenttimefactor}{\developersnumberfactor} \approx \developertimefundvalue~\text{д}.
-\end{equation}
-
-\subsection{Расчет сметы затрат}
+\subsection{Расчет суммы затрат на разработку и отпускной цены программного средства}
 \label{sec:economics:estimate}
 
 Основной статьей расходов на создание ПО является заработная плата разработчиков проекта. Информация об исполнителях перечислена в таблице~\ref{table:economics:estimate:employees}. Кроме того, в таблице приведены данные об их тарифных разрядах, приведены разрядные коэффициенты, а также по формулам~\ref{eq:economics:estimate:month_wage} и~\ref{eq:economics:estimate:hour_wage} рассчитаны месячный и часовой оклады.
@@ -252,6 +38,7 @@
 	\hline
   \end{tabular}
 \end{table}
+\vspace{-6mm}
 
 \begin{equation}
 \label{eq:economics:estimate:month_wage}
@@ -266,7 +53,7 @@
 	& $ \text{T}_\text{м}^1 $ & тарифная ставка 1-го разряда (положим ее равной \num{\firstratetariff} \byn);\\
 	& $ \text{T}_\text{к} $ & тарифный коэффициент;\\
 	& $ \text{T}_\text{ч} $ & часовой оклад;\\
-	& $ \text{Ф}_\text{р} $ & среднемесячная норма рабочего времени (в 2017 г. составляет \num{168.3} ч.~\cite{labour_calendar}).
+	& $ \text{Ф}_\text{р} $ & среднемесячная норма рабочего времени (в 2019 г. составляет \num{167.3} ч.~\cite{labour_calendar}).
 \end{explanation}
 
 Тогда основная заработная плата исполнителей составит
@@ -284,7 +71,7 @@
 \end{explanation}
 
 Дополнительная заработная плата включает выплаты, предусмотренные законодательство о труде: оплата отпусков, льготных часов, времени  выполнения  государственных обязанностей и других выплат, не связанных с основной деятельностью исполнителей, и определяется по нормативу, установленному в организации, в процентах к основной заработной плате.
-Приняв данный норматив $\additionalwageratesymbol = \additionalwageratevalue$, рассчитаем дополнительные выплаты
+Приняв норматив дополнительной заработной платы $\additionalwageratesymbol = \additionalwageratevalue$, рассчитаем дополнительные выплаты
 \begin{equation}
 	\additionalwagesymbol = \frac{\basewagesymbol \cdot \additionalwageratesymbol}{100\%} = \frac{\basewagevalue \cdot \additionalwageratevalue}{100\%} = \additionalwagevalue~\byn
 \end{equation}
@@ -361,117 +148,73 @@
 	\sellingpricesymbol = \netpricesymbol + \vatsymbol = \netpricevalue + \vatvalue = \sellingpricevalue~\byn
 \end{equation}
 
-Организация-разработчик участвует в освоении и внедрении ПО и несет соответствующие затраты, которые определяются по нормативу\linebreak $\deploymentratesymbol~=~\deploymentratevalue$ от себестоимости ПО в расчете на три месяца
-\begin{equation}
-	\deploymentchargessymbol = \frac{\totalchargessymbol \cdot \deploymentratesymbol}{100\%} = \frac{\totalchargesvalue \cdot \deploymentratevalue}{100\%} = \deploymentchargesvalue~\byn
-\end{equation}
-
-Кроме того, организация-разработчик осуществляет сопровождение\linebreak ПО, которое также оплачивается заказчиком. Расчет осуществляется в соответствии с нормативом $\maintenanceratesymbol~=~\maintenanceratevalue$ от себестоимости ПО
-\begin{equation}
-	\maintenancechargessymbol = \frac{\totalchargessymbol \cdot \maintenanceratesymbol}{100\%} = \frac{\totalchargesvalue \cdot \maintenanceratevalue}{100\%} = \maintenancechargesvalue~\byn
-\end{equation}
-
-Экономическим эффектом разработчика будет являться сумма прибыли с вычетом налога на прибыль
-\begin{equation}
-	\netprofitabilitysymbol = \profitabilitysymbol - \frac{\profitabilitysymbol \cdot \profittaxratesymbol}{100\%} = \profitabilityvalue - \frac{\profitabilityvalue \cdot \profittaxratevalue}{100\%} = \netprofitabilityvalue~\byn
-\end{equation}
-
-\subsection{Оценка экономической эффективности применения программного средства у пользователя}
+\subsection{Оценка экономического эффекта от продажи программного средства}
 \label{sec:economics:effect}
 
-В результате применения нового ПО пользователь может понести значительные капитальные затраты на приобретение и освоение ПО, доукомплектованием ЭВМ новыми техническими средствами и пополнение оборотных средств. Однако, если приобретенное ПО будет в достаточной степени эффективнее базового, то дополнительные капитальные затраты быстро окупятся.
+Положительный экономический эффект для разработчика программного средства достигается за счет получения прибыли от реализация мобильного приложения большому количеству пользователей. Прибыль достигаетсяза счет реализации мобильного приложения на рынку мобильных приложений. Прибыль от реализации зависит от количества клиентов, ценны мобильного приложения и затрат на разработку.
 
-Для определения экономического эффекта от использования нового ПО у потребителя необходимо сравнить расходы по всем основным статьям сметы затрат на эксплуатацию нового ПО с расходами по соответствующим статьям базового варианта. При этом за базовый вариант примем ручной вариант. Исходные данные для расчета приведены в таблице~\ref{table:economics:effect:initial_data}. Размер средней зарплаты приведен на февраль 2017 г.
+Исходя из тенденций на рынке мобильных приложений и маркетингового исследования, приложение будет востребовано ны рынке в течение четырех лет: в 2019 году планируется реализовать \countfirstyearcopys~копий, в 2020 году --- \countsecondyearcopys~копий, 2021 год --- \countthirdyearcopys~копий и \counfoursyearcopys~в 2023 году.
 
-\begin{table}[!ht]
-\caption{Исходные данные}
-\label{table:economics:effect:initial_data}
-\centering
-	\begin{tabular}{{ 
-	|>{\raggedright}m{0.4\textwidth} | 
-	 >{\centering}m{0.17\textwidth} | 
-	 >{\centering}m{0.14\textwidth} | 
-	 >{\centering\arraybackslash}m{0.18\textwidth}|}}
+На основании анализа цен на аналоничные приложения мы определим цену мобильного приложения: \oneCopyPrice~\byn
 
-  	\hline
-	{\begin{center} Наименование показателя \end{center}} & Условное обозначение & Значение в базовом варианте & Значение в новом варианте \\
-
-	\hline
-	Затраты пользователя на приобретение ПО & $\purchasecostsymbol$ & --- & \sellingpricevalue~\byn\\
-
-	\hline
-	Затраты пользователя на освоение & $\deploymentcostsymbol$ & --- & \deploymentchargesvalue~\byn\\
-
-	\hline
-	Затраты пользователя на сопровождение & $\maintenancecostsymbol$ & --- & \maintenancechargesvalue~\byn\\
-
-	\hline
-	Трудоемкость на задачу,~\manhour & $\baselabourisnesssymbol,\newlabourisnesssymbol$ & \baselabourisnessvalue & \newlabourisnessvalue\\
-
-	\hline
-	Средняя зарплата,~\byn & $\averagewagesymbol$ & \averagewagevalue & \averagewagevalue\\
-
-	\hline
-	Количество выполняемых задач & $\basetaskscountsymbol,\newtaskscountsymbol$ & \taskscountvalue & \taskscountvalue\\
-
-	\hline
-	Время простоя сервиса, мин. в день & $\basedowntimesymbol,\newdowntimesymbol$ & \basedowntimevalue & \newdowntimevalue\\
-
-	\hline
-	Стоимость одного часа простоя, \byn & $\downtimepricesymbol$ & \downtimepricevalue & \downtimepricevalue\\
-
-	\hline
-	\end{tabular}
-\end{table}
-
-Общие капитальные вложения заказчика (потребителя) вычисляются следующим образом
+Прибыль от продажи одной копии рассчитывается по формуле:
 \begin{equation}
-\begin{aligned}
-	\capitalinvestmentsymbol = \purchasecostsymbol + \deploymentcostsymbol + \maintenancecostsymbol &= \sellingpricevalue + \deploymentchargesvalue + \maintenancechargesvalue = \\
-	&= \capitalinvestmentvalue~\byn
-\end{aligned}
+	\label{eq:economics:estimate:onecopyprofit}
+	\begin{aligned}
+		\onecopyprofit &= \text{Ц} - \vatsymbola - \frac{\text{З}_\text{р}}{\countcopyssymbol},
+	\end{aligned}
+	\end{equation}
+	\begin{explanation}
+	где & $ \text{Ц} $ & цена реализации одной копии, \byn;\\
+		& $ \vatsymbola $ & сумма налога на добавленную стоимость, \byn;\\
+		& $ \text{З}_\text{р} $ & сумма расходов на разработку и реализацию, \byn;\\
+		& $ \countcopyssymbol $ & количество реализованных копий.
+	\end{explanation}
+
+Сумма налога на добавленную стоимость
+\begin{equation}
+	\vatsymbola = \frac{\text{Ц} \cdot \%\vatsymbola}{100 + \%\vatsymbol} = \frac{\oneCopyPrice \cdot \vatrate}{100 + \vatrate} = \vatsymbolavalue~\byn
+\end{equation}
+
+ Подставим значения в формулу ~\ref{eq:economics:estimate:onecopyprofit}:
+ \begin{equation}
+	\onecopyprofit = \oneCopyPrice - \vatsymbolavalue - \frac{\sellingpricevalue}{\countcopys} = \onecopyprofitvalue~\byn
+\end{equation}
+
+Cуммарная прибыль за год рассчитывется как:
+\begin{equation}
+	\sumprofitperyearsymbol = \text{П}_\text{ед} \cdot \countcopyssymbol,
+\end{equation}
+
+Следовательно прибыль от программного продукта по годам составляет:
+\begin{equation}
+	\begin{aligned}
+		\text{П}_\text{1} = \onecopyprofitvalue \cdot \countfirstyearcopys = \profitperyearvalueone~\byn,\\
+		\text{П}_\text{2} = \onecopyprofitvalue \cdot \countsecondyearcopys = \profitperyearvaluetwo~\byn,\\
+		\text{П}_\text{3} = \onecopyprofitvalue \cdot \countthirdyearcopys = \profitperyearvaluethree~\byn,\\
+		\text{П}_\text{4} = \onecopyprofitvalue \cdot \counfoursyearcopys = \profitperyearvaluefour~\byn,\\
+	\end{aligned}
+\end{equation}
+
+Чистая прибыль с учетом налога на прибыль будет рассчитываться по формуле:
+\begin{equation}
+	\begin{aligned}
+		\clearProfitSymol &= \sumprofitperyearsymbol - \frac{\sumprofitperyearsymbol \cdot \incomTaxRateSymbol}{100},
+	\end{aligned}
 \end{equation}
 \begin{explanation}
-где &$ \purchasecostsymbol $& затраты пользователя на приобретение ПО по отпускной цене;\\
-	&$ \deploymentcostsymbol $& затраты пользователя на освоение;\\
-	&$ \maintenancecostsymbol $& затраты пользователя на оплату услуг по сопровождению.
+	где & $ \incomTaxRateSymbol $ & ставка налога на прибыль (в 2019 г. составляет \num{18}\%~\cite{incomeTaxRate}).
 \end{explanation}
+\vspace{-3mm}
 
-В качестве типичного примера использования разрабатываемого ПС\linebreak предполагается сценарий ее использования ежедневно $\usesperday$ раза в день, при этом предполагается снижение трудоемкости с $\baselabourisnesssymbol~=~\baselabourisnessvalue~\manhour$ до\\ $\newlabourisnesssymbol~=~\newlabourisnessvalue~\manhour$. Приняв среднемесячную заработную плату работника\linebreak $\averagewagesymbol~=~\averagewagevalue~\byn$, рассчитаем экономию затрат на заработную плату в расчете на одну задачу $\wageeconomypertasksymbol$ и за год $\wageeconomysymbol$ 
+Чистая прибыль по годам составит:
 \begin{equation}
-	\wageeconomypertasksymbol = \frac{\averagewagesymbol \cdot (\baselabourisnesssymbol - \newlabourisnesssymbol)}{\averagehourspermonthsymbol} = \frac{\averagewagevalue \cdot (\baselabourisnessvalue - \newlabourisnessvalue)}{\averagehourspermonthvalue} = \wageeconomypertaskvalue~\byn,
-\end{equation}
-\begin{equation}
-	\wageeconomysymbol = \wageeconomypertasksymbol \cdot \newtaskscountsymbol = \wageeconomypertaskvalue \cdot \taskscountvalue = \wageeconomyvalue~\byn,
-\end{equation}
-\begin{explanation}
-где &$\averagehourspermonthsymbol$& среднемесячная норма рабочего времени, ч.
-\end{explanation}
-
-Экономия с учетом начислений на зарплату
-\begin{equation}
-	\totalwageeconomysymbol = \wageeconomysymbol \cdot \frac{100\% + \bonusratesymbol}{100\%} = \wageeconomyvalue \cdot \frac{100\% + \bonusratevalue}{100\%} = \totalwageeconomyvalue~\byn,
-\end{equation}
-\begin{explanation}
-где &$\bonusratesymbol$& норматив начислений на зарплату, \byn
-\end{explanation}
-
-Экономия за счет сокращения простоев сервиса
-\begin{equation}
-	\downtimechargessymbol = \frac{(\basedowntimesymbol - \newdowntimesymbol) \cdot \planserviceworktimesymbol \cdot \downtimepricesymbol}{60} = \frac{(\basedowntimevalue - \newdowntimevalue) \cdot \planserviceworktimevalue \cdot \downtimepricevalue}{60} = \downtimechargesvalue,~\byn,
-\end{equation}
-\begin{explanation}
-где &$\planserviceworktimesymbol$& плановый фонд работы сервиса, д.
-\end{explanation}
-
-Тогда общая годовая экономия текущих затрат, связанных с использованием нового ПО
-\begin{equation}
-	\totaleconomysymbol = \totalwageeconomysymbol + \downtimechargessymbol = \totalwageeconomyvalue + \downtimechargesvalue = \totaleconomyvalue~\byn
-\end{equation}
-
-Внедрение нового ПО позволит пользователю сэкономить на текущих затратах, то есть получить на эту сумму дополнительную прибыль. Для пользователя в качестве экономического эффекта выступает лишь чистая прибыль. Принимая размер ставки налога на прибыль $\profittaxratesymbol~=~\profittaxratevalue$ получим
-\begin{equation}
-	\Delta\usernetprofitsymbol = \totaleconomysymbol - \frac{\totaleconomysymbol \cdot \profittaxratesymbol}{100\%} = \totaleconomyvalue - \frac{\totaleconomyvalue \cdot \profittaxratevalue}{100\%} = \usernetprofitvalue~\byn
+	\begin{aligned}
+		\text{ЧП}_\text{1} &= \profitperyearvalueone - \profitperyearvalueone \cdot \incomTaxRate = \clearProfitValueOne~\byn,\\
+		\text{ЧП}_\text{2} &= \profitperyearvaluetwo - \profitperyearvaluetwo \cdot \incomTaxRate = \clearProfitValueTwo~\byn,\\
+		\text{ЧП}_\text{3} &= \profitperyearvaluethree - \profitperyearvaluethree \cdot \incomTaxRate = \clearProfitValueThree~\byn,\\
+		\text{ЧП}_\text{4} &= \profitperyearvaluefour - \profitperyearvaluefour \cdot \incomTaxRate = \clearProfitValueFour~\byn
+	\end{aligned}
 \end{equation}
 
 В процессе использования нового ПО чистая прибыль в конечном итоге возмещает капитальные затраты. Однако полученные при этом суммы прибыли и затрат по годам приводят к единому времени -- расчетному году (за расчетный год принят 2017-й год) путем умножения результатов и затрат за каждый год на коэффициент дисконтирования $\alpha$. При расчете используются следующие коэффициенты: $2017~\text{г.} - \num{1}, 2018~\text{г.} - \num{0.8696}, 2019~\text{г.} - \num{0.7561}, 2020~\text{г.} - \num{0.6575}$. Все рассчитанные данные экономического эффекта сведены в таблицу~\ref{table:economics:effect:final_data}.

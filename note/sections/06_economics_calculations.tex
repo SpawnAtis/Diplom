@@ -117,6 +117,34 @@
 \FPeval{\sellingprice}{clip(\netprice + \vat)}
 \newcommand{\sellingpricevalue}{\num{\sellingprice}}
 
+\FPeval{\vatsymbolaeval}{round((\oneCopyPrice * \vatrate) / (100 + \vatrate), 2)}
+\newcommand{\vatsymbolavalue}{\num{\vatsymbolaeval}}
+
+\FPeval{\countcopys}{clip(\countfirstyearcopys + \countsecondyearcopys + \countthirdyearcopys + \counfoursyearcopys)}
+
+\FPeval{\onecopyprofiteval}{round(\oneCopyPrice - \vatsymbolaeval - (\sellingprice / \countcopys), 2)}
+\newcommand{\onecopyprofitvalue}{\num{\onecopyprofiteval}}
+%-----------------
+\FPeval{\profitperyearvalueoneeval}{clip(\onecopyprofiteval * \countfirstyearcopys)}
+\newcommand{\profitperyearvalueone}{\num{\profitperyearvalueoneeval}}
+\FPeval{\profitperyearvaluetwoeval}{clip(\onecopyprofiteval * \countsecondyearcopys)}
+\newcommand{\profitperyearvaluetwo}{\num{\profitperyearvaluetwoeval}}
+\FPeval{\profitperyearvaluethreeeval}{clip(\onecopyprofiteval * \countthirdyearcopys)}
+\newcommand{\profitperyearvaluethree}{\num{\profitperyearvaluethreeeval}}
+\FPeval{\profitperyearvaluefoureval}{clip(\onecopyprofiteval * \counfoursyearcopys)}
+\newcommand{\profitperyearvaluefour}{\num{\profitperyearvaluefoureval}}
+%-----------------
+%-----------------
+\FPeval{\clearProfitValueOneEval}{clip(\profitperyearvalueoneeval - \profitperyearvalueoneeval * \incomTaxRate)}
+\newcommand{\clearProfitValueOne}{\num{\clearProfitValueOneEval}}
+\FPeval{\clearProfitValueTwoEval}{clip(\profitperyearvaluetwoeval - \profitperyearvaluetwoeval * \incomTaxRate)}
+\newcommand{\clearProfitValueTwo}{\num{\clearProfitValueTwoEval}}
+\FPeval{\clearProfitValueThreeEval}{clip(\profitperyearvaluethreeeval - \profitperyearvaluethreeeval * \incomTaxRate)}
+\newcommand{\clearProfitValueThree}{\num{\clearProfitValueThreeEval}}
+\FPeval{\clearProfitValueFourEval}{clip(\profitperyearvaluefoureval - \profitperyearvaluefoureval * \incomTaxRate)}
+\newcommand{\clearProfitValueFour}{\num{\clearProfitValueFourEval}}
+%-----------------
+
 \FPeval{\deploymentcharges}{round(\totalcharges * \deploymentrate / 100, 2)}
 \newcommand{\deploymentratevalue}{\num{\deploymentrate}\%}
 \newcommand{\deploymentchargesvalue}{\num{\deploymentcharges}}
