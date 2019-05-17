@@ -62,7 +62,7 @@
 \newcommand{\hourspershiftvalue}{\num{\hourspershift}}
 \newcommand{\bonusratevalue}{\num{\bonusrate}}
 
-\FPeval{\basewageExact}{(\employeeAHour + \employeeBHour + \employeeCHour) * \hourspershift * \developertimefund * \bonusrate}
+\FPeval{\basewageExact}{(\employeeBHour + \employeeCHour) * \hourspershift * \developertimefund * \bonusrate}
 \FPround{\basewage}{\basewageExact}{2}
 \newcommand{\basewagevalue}{\num{\basewage}}
 
@@ -143,6 +143,14 @@
 \newcommand{\clearProfitValueThree}{\num{\clearProfitValueThreeEval}}
 \FPeval{\clearProfitValueFourEval}{clip(\profitperyearvaluefoureval - \profitperyearvaluefoureval * \incomTaxRate)}
 \newcommand{\clearProfitValueFour}{\num{\clearProfitValueFourEval}}
+%-----------------
+%-----------------
+\FPeval{\discontKValueOneEval}{round(pow(-1, 1.1), 2)}
+\newcommand{\discontKValueOne}{\num{\discontKValueOneEval}}
+\FPeval{\discontKValueTwoEval}{round(pow(-2, 1.1), 2)}
+\newcommand{\discontKValueTwo}{\num{\discontKValueTwoEval}}
+\FPeval{\discontKValueThreeEval}{round(pow(-3, 1.1), 2)}
+\newcommand{\discontKValueThree}{\num{\discontKValueThreeEval}}
 %-----------------
 
 \FPeval{\deploymentcharges}{round(\totalcharges * \deploymentrate / 100, 2)}

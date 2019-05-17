@@ -7,9 +7,22 @@
 \subsection{Характеристика программного средства}
 \label{sec:economics:description}
 
-%Программное средство, разрабатываемое в рамках дипломного проекта, предназначено для автоматизации основных задач участников учебного процесса университетов: управление расписанием, заданиями и коммуникацией. Существует большое число средств, с помощью которых могут решаться перечисленные задачи, однако данное многообразие приводит к разрозненности рабочих окружений разных людей. Вследствие ее возникновения у всех участников учебного процесса появляется необходимость в совершении рутинных действий по настройке своей рабочей среды. Кроме того, различия в используемых средствах приводят к необходимости дополнительных действий по сопряжению интерфейсов коммуникации. Данные проблемы могут быть решены путем создания системы, которая бы объединяла и унифицировала задачи управления событиями календаря, задачами и контактами.
+Программное средство, разрабатываемое в рамках дипломного проекта, предназначено для упрощения коммуникации больших групп пользователей, интересующихся определённой предметной областью, в данном случае --- мотоциклами.
+Существует большое количество социальных сетей, которые решают проблемы коммуникации, однако все больше людей хотят общаться с единомышленниками, которые ориентированы на конкретные профессии или интересы, и получать тематическией контент.
+Вследствие этого появляется необходимость в создании тематических социальных сетей, которые бы комбинировали функционал обычных социальных сетей и тематико-ориентированный функционал.
+Данные проблемы в контексте сообщества людей, увлекающимися мототематикой, могут быть решены путем создания мобильного приложения, которое бы объединяло функционалы мобильного навигатора и социальной сети, как Instagram.
 
-%Разработки проектов программных средств связана со значительными затратами ресурсов. В связи с этим создание и реализация каждого проекта программного обеспечения нуждается в соответствующем тех\-ни\-ко-эко\-но\-ми\-чес\-ком обосновании~\cite{palitsyn}, которое и описывается в данном разделе.
+Исходя из текущей тенденций на рынке мобильных приложений и маркетинвого исследования, приложение будет восстребовано на рынке в течение четырех лет:
+в 2019 году планируется реализовать $ \countfirstyearcopys $ копий, в 2020 году - $ \countsecondyearcopys $ копий, в 2021 г. - $ \countthirdyearcopys $ копий и $ \counfoursyearcopys $ копий в 2020 году.
+
+Разработки проектов программных средств связана со значительными затратами ресурсов. В связи с этим создание и реализация каждого проекта программного обеспечения нуждается в соответствующем тех\-ни\-ко-эко\-но\-ми\-чес\-ком обосновании~\cite{palitsyn}, которое и описывается в данном разделе.
+
+Экономическая целесообразность инвестиций в разработку и использование мобильного приложения осуществляется на основе следующих показателей~\cite{nosenko}:
+\begin{itemize}
+	\item чистая дисконтированная стоимость ЧДД;
+	\item срок окупаемости инвестиций ($ \text{T}_\text{ок} $));
+	\item рентабельность инвестиций ($ \text{Р}_\text{н} $);
+\end{itemize}
 
 \subsection{Расчет суммы затрат на разработку и отпускной цены программного средства}
 \label{sec:economics:estimate}
@@ -27,8 +40,8 @@
 	\hline
 	{\begin{center}Исполнители\end{center}} & Разряд & Тарифный коэффициент & Месячный оклад, \byn & Часовой оклад, \byn \\
 
-	\hline
-	Руководитель проекта & 17 & \num{3.98} & \employeeamonthwage & \employeeahourwage \\
+	% \hline
+	% Руководитель проекта & 17 & \num{3.98} & \employeeamonthwage & \employeeahourwage \\
 
 	\hline
 	Ведущий инженер-программист & 15 & \num{3.48} & \employeebmonthwage & \employeebhourwage\\
@@ -60,7 +73,7 @@
 \begin{equation}
 \begin{aligned}
 	\basewagesymbol &= \sum_{i=1}^n \text{Т}_\text{чi} \cdot \text{Т}_\text{ч} \cdot \developertimefundsymbol \cdot K = \\
-	&= (\employeeahourwage + \employeebhourwage + \employeechourwage) \cdot \hourspershiftvalue \cdot \developertimefundvalue \cdot \bonusratevalue = \basewagevalue~\text{\byn},
+	&= (\employeebhourwage + \employeechourwage) \cdot \hourspershiftvalue \cdot \developertimefundvalue \cdot \bonusratevalue = \basewagevalue~\text{\byn},
 \end{aligned}
 \end{equation}
 \begin{explanation}
@@ -153,7 +166,7 @@
 
 Положительный экономический эффект для разработчика программного средства достигается за счет получения прибыли от реализация мобильного приложения большому количеству пользователей. Прибыль достигаетсяза счет реализации мобильного приложения на рынку мобильных приложений. Прибыль от реализации зависит от количества клиентов, ценны мобильного приложения и затрат на разработку.
 
-Исходя из тенденций на рынке мобильных приложений и маркетингового исследования, приложение будет востребовано ны рынке в течение четырех лет: в 2019 году планируется реализовать \countfirstyearcopys~копий, в 2020 году --- \countsecondyearcopys~копий, 2021 год --- \countthirdyearcopys~копий и \counfoursyearcopys~в 2023 году.
+Исходя из тенденций на рынке мобильных приложений и маркетингового исследования, приложение будет востребовано ны рынке в течение четырех лет: в 2019 году планируется реализовать \countfirstyearcopys~копий, в 2020 году --- \countsecondyearcopys~копий, 2021 год --- \countthirdyearcopys~копий и \counfoursyearcopys~в 2022 году.
 
 На основании анализа цен на аналоничные приложения мы определим цену мобильного приложения: \oneCopyPrice~\byn
 
@@ -233,16 +246,48 @@ Cуммарная прибыль за год рассчитывется как:
 		& $ t $ & номер расчетного года.
 \end{explanation}
 
-На 27.06.2018 ставка рефинансирования состовляет обосновании~\cite{refinancingTax}
-Итого коэффициент дисконтирования по годам:
+На 27.06.2018 ставка рефинансирования состовляет 10\%~\cite{refinancingTax}.
+Итого коэффициент дисконтирования по годам (2019 - 2022):
 \begin{equation}
 	\begin{aligned}
-		\text{ЧП}_\text{1} &= \profitperyearvalueone - \profitperyearvalueone \cdot \incomTaxRate = \clearProfitValueOne~\byn,\\
-		\text{ЧП}_\text{2} &= \profitperyearvaluetwo - \profitperyearvaluetwo \cdot \incomTaxRate = \clearProfitValueTwo~\byn,\\
-		\text{ЧП}_\text{3} &= \profitperyearvaluethree - \profitperyearvaluethree \cdot \incomTaxRate = \clearProfitValueThree~\byn,\\
-		\text{ЧП}_\text{4} &= \profitperyearvaluefour - \profitperyearvaluefour \cdot \incomTaxRate = \clearProfitValueFour~\byn
+		\text{\(\alpha\)}_\text{1} &= 1,\\
+		\text{\(\alpha\)}_\text{2} &= \text{(1 + \refinancingTax)}^{\text{1 - 2}} = \discontKValueOne,\\
+		\text{\(\alpha\)}_\text{3} &= \text{(1 + \refinancingTax)}^{\text{1 - 3}} = \discontKValueTwo,\\
+		\text{\(\alpha\)}_\text{4} &= \text{(1 + \refinancingTax)}^{\text{1 - 4}} = \discontKValueThree.
 	\end{aligned}
 \end{equation}
+
+Cведем данные расчета вэкономического эффекта в таблицу~\ref{table:economics:estimate:economEffect}.
+\begin{table}[!ht]
+  \caption{Расчет экономического эффекта}
+  \label{table:economics:estimate:economEffect}
+  \begin{tabular}{| >{\centering}m{0.3\textwidth} 
+                  | >{\centering}m{0.107\textwidth} 
+                  | >{\centering}m{0.107\textwidth} 
+                  | >{\centering}m{0.107\textwidth} 
+									| >{\centering}m{0.107\textwidth} 
+                  | >{\centering\arraybackslash}m{0.1\textwidth}|}
+\hline
+		\multirow{2}{*}{Показатели} & \multirow{2}{*}{Ед. изм.} & \multicolumn{4}{c|}{Годы} \\ \cline{3-6}
+		 & & 2019 & 2020 & 2021 & 2022 \\ 
+\hline
+\multicolumn{6}{|c|}{Результаты:} \\ \hline
+\multicolumn{1}{|c|}{Экономический эффект} & руб. & \multicolumn{1}{c|}{\clearProfitValueOne} & \clearProfitValueTwo & \clearProfitValueThree & \profitperyearvaluefour \\ \hline
+	\end{tabular}
+\end{table}
+
+Полученные результаты свидетельствуют об эффективности разработки проектируемого программного средства.
+
+% Cведем данные расчета вэкономического эффекта в таблицу 7.2
+% \begin{table}[!ht]
+% 	\begin{tabularx}{\textwidth}{|c|c|c|c|c|c|}
+% 	\hline
+% 	\multirow{2}{*}{Показатели} & \multirow{2}{*}{Ед. изм.} & \multicolumn{4}{c|}{Годы} \\ \cline{3-6} 
+% 	& & 2019 & \multicolumn{1}{c|}{2020} & \multicolumn{1}{c|}{2021} & \multicolumn{1}{c|}{2022} \\ \hline
+% 	\multicolumn{6}{|c|}{Результаты:} \\ \hline
+% 	\multicolumn{1}{|c|}{Экономический эффект} & руб. & \multicolumn{1}{c|}{} & & & \\ \hline
+% 	\end{tabularx}
+% 	\end{table}
 
 % \begin{longtable}{{|>{\raggedright}m{0.32\textwidth} | 
 % 					>{\centering}m{0.1375\textwidth} | 
@@ -315,5 +360,3 @@ Cуммарная прибыль за год рассчитывется как:
 
 % 	\hline
 % \end{longtable}
-
-Полученные результаты свидетельствуют об эффективности разработки и внедрения проектируемого программного средства.
