@@ -19,11 +19,7 @@
     "prefer-promise-reject-errors": "off",
     "no-throw-literal": "off",
     "no-unused-expressions": "off",
-    "react/destructuring-assignment": [
-      true,
-      "always",
-      { "ignoreClassFields": true }
-    ],
+    "react/destructuring-assignment": [true, "always", { "ignoreClassFields": true }],
     "react/no-string-refs": "off",
     "no-nested-ternary": "off",
     "react/sort-comp": "off",
