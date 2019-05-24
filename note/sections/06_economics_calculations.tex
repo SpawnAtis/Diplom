@@ -38,9 +38,9 @@
 \FPeval{\developertimefund}{round(\developmentTimeDays / \requiredNumberOfProgrammers,0)}
 \newcommand{\developertimefundvalue}{\num{\developertimefund}}
 
-\FPeval{\employeeAMonthExact}{\firstratetariff * 3.98}
-\FPeval{\employeeBMonthExact}{\firstratetariff * 3.48}
-\FPeval{\employeeCMonthExact}{\firstratetariff * 2.65}
+\FPeval{\employeeAMonthExact}{\firstratetariff * 4.26}
+\FPeval{\employeeBMonthExact}{\firstratetariff * 4.88}
+\FPeval{\employeeCMonthExact}{\firstratetariff * 2.48}
 \FPeval{\employeeAHourExact}{\employeeAMonthExact / \averagehourspermonth}
 \FPeval{\employeeBHourExact}{\employeeBMonthExact / \averagehourspermonth}
 \FPeval{\employeeCHourExact}{\employeeCMonthExact / \averagehourspermonth}
@@ -62,7 +62,25 @@
 \newcommand{\hourspershiftvalue}{\num{\hourspershift}}
 \newcommand{\bonusratevalue}{\num{\bonusrate}}
 
-\FPeval{\basewageExact}{(\employeeBHour + \employeeCHour) * \hourspershift * \developertimefund * \bonusrate}
+\newcommand{\premiavalue}{\num{\premia}}
+
+\FPeval{\basewageExactA}{\employeeAHour * \hourspershift * 30 * \bonusrate}
+\FPround{\basewageA}{\basewageExactA}{2}
+\newcommand{\basewagevalueA}{\num{\basewageA}}
+
+\FPeval{\basewageExactB}{\employeeBHour * \hourspershift * 45 * \bonusrate}
+\FPround{\basewageB}{\basewageExactB}{2}
+\newcommand{\basewagevalueB}{\num{\basewageB}}
+
+\FPeval{\basewageExactC}{\employeeCHour * \hourspershift * 50 * \bonusrate}
+\FPround{\basewageC}{\basewageExactC}{2}
+\newcommand{\basewagevalueC}{\num{\basewageC}}
+
+\FPeval{\zpItogExact}{(\basewageA+ \basewageB + \basewageC)}
+\FPround{\zpItog}{\zpItogExact}{2}
+\newcommand{\zpItogvalue}{\num{\zpItog}}
+
+\FPeval{\basewageExact}{\zpItog + \premia}
 \FPround{\basewage}{\basewageExact}{2}
 \newcommand{\basewagevalue}{\num{\basewage}}
 
@@ -99,7 +117,7 @@
 \newcommand{\overheadratevalue}{\num{\overheadrate}\%}
 \newcommand{\overheadvalue}{\num{\overheadcharges}}
 
-\FPeval{\totalcharges}{\basewage + \additionalwage + \ssfcharges + \insurancecharges + \consumablescharges + \machinetimecharges + \businesstripcharges + \othercharges + \overheadcharges}
+\FPeval{\totalcharges}{\basewage + \additionalwage + \ssfcharges + \insurancecharges + \machinetimecharges + \businesstripcharges + \othercharges + \overheadcharges}
 \FPeval{\totalchargesclipped}{clip(\totalcharges)}
 \newcommand{\totalchargesvalue}{\num{\totalchargesclipped}}
 
@@ -114,7 +132,8 @@
 \newcommand{\vatvalue}{\num{\vat}}
 \newcommand{\vatratevalue}{\num{\vatrate}\%}
 
-\FPeval{\sellingprice}{clip(\netprice + \vat)}
+
+\FPeval{\sellingprice}{clip(\netprice)}
 \newcommand{\sellingpricevalue}{\num{\sellingprice}}
 
 \FPeval{\vatsymbolaeval}{round((\oneCopyPrice * \vatrate) / (100 + \vatrate), 2)}
@@ -145,11 +164,11 @@
 \newcommand{\clearProfitValueFour}{\num{\clearProfitValueFourEval}}
 %-----------------
 %-----------------
-\FPeval{\discontKValueOneEval}{round(pow(-1, 1.1), 2)}
+\FPeval{\discontKValueOneEval}{round(pow(-1, 1.105), 2)}
 \newcommand{\discontKValueOne}{\num{\discontKValueOneEval}}
-\FPeval{\discontKValueTwoEval}{round(pow(-2, 1.1), 2)}
+\FPeval{\discontKValueTwoEval}{round(pow(-2, 1.105), 2)}
 \newcommand{\discontKValueTwo}{\num{\discontKValueTwoEval}}
-\FPeval{\discontKValueThreeEval}{round(pow(-3, 1.1), 2)}
+\FPeval{\discontKValueThreeEval}{round(pow(-3, 1.105), 2)}
 \newcommand{\discontKValueThree}{\num{\discontKValueThreeEval}}
 %-----------------
 
@@ -219,3 +238,11 @@
 \newcommand{\excessovercostswithtimingyeartwovalue}{\num{\excessovercostswithtimingyeartwo}}
 \FPeval{\excessovercostswithtimingyearthree}{clip(\excessovercostswithtimingyeartwo + \usernetprofityearthree)}
 \newcommand{\excessovercostswithtimingyearthreevalue}{\num{\excessovercostswithtimingyearthree}}
+
+\FPeval{\clearProfitPerYearEq}{(\profitperyearvalueoneeval + \profitperyearvaluetwoeval + \profitperyearvaluethreeeval + \profitperyearvaluefoureval) /4}
+\FPeval{\clearProfitPerYearClipped}{clip(\clearProfitPerYearEq)}
+\newcommand{\clearProfitPerYearValue}{\num{\clearProfitPerYearClipped}}
+
+\FPeval{\rentInvestValueEq}{\clearProfitPerYearEq / \totalcharges}
+\FPeval{\rentInvestValueClipped}{round(\rentInvestValueEq, 2)}
+\newcommand{\rentInvestValue}{\num{\rentInvestValueClipped}}
