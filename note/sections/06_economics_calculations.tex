@@ -141,7 +141,7 @@
 
 \FPeval{\countcopys}{clip(\countfirstyearcopys + \countsecondyearcopys + \countthirdyearcopys + \counfoursyearcopys)}
 
-\FPeval{\onecopyprofiteval}{round(\oneCopyPrice - \vatsymbolaeval - (\sellingprice / \countcopys), 2)}
+\FPeval{\onecopyprofiteval}{round(\oneCopyPrice - (\sellingprice / \countcopys), 2)}
 \newcommand{\onecopyprofitvalue}{\num{\onecopyprofiteval}}
 %-----------------
 \FPeval{\profitperyearvalueoneeval}{clip(\onecopyprofiteval * \countfirstyearcopys)}
