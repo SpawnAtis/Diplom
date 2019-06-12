@@ -1,0 +1,39 @@
+
+      FieldDefinitions:
+      * DisciplineSection: DisciplineSection
+      * DisciplineMaterials: DisciplineMaterial[]
+    }
+    *
+    { N.TypeDefinition
+      TypeName: University
+      BaseTypeName: DbObject
+      FieldDefinitions:
+      * Abbreviation: String
+      * FullName: String
+      * Description: String
+      * Faculties: Faculty[] @BackReference(University)
+      * Departments: Department[] @BackReference(University)
+      * AdministrativeDepartments: AdministrativeDepartment[] @BackReference(University)
+      * TimeSlots: TimeSlot[]
+    }
+    *
+    { N.TypeDefinition
+      TypeName: Faculty
+      BaseTypeName: DbObject
+      FieldDefinitions:
+      * Abbreviation: String
+      * FullName: String
+      * Description: String
+      * University: University @BackReference(Faculties)
+      * Specialities: Speciality[] @BackReference(Faculty)
+    }
+    *
+    { N.TypeDefinition
+      TypeName: AdministrativeDepartment
+      BaseTypeName: Entity
+      FieldDefinitions:
+      * Name: String
+      * Description: String
+      * University: University @BackReference(AdministrativeDepartments)
+   
+ 

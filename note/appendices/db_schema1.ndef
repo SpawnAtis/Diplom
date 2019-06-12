@@ -1,0 +1,48 @@
+{ N.DatabaseConfiguration
+  ConfigurationId:
+  RedundancyLevel: 0
+  DatabaseSchema:
+  { N.DatabaseSchema
+    TypeDefinitions:
+    *
+    { N.TypeDefinition
+      TypeName: Entity
+      BaseTypeName: DbObject
+      FieldDefinitions:
+      * Id: Int64
+    }
+    *
+    { N.TypeDefinition
+      TypeName: User
+      BaseTypeName: DbObject
+      FieldDefinitions:
+      * Email: String
+      * EmailConfirmed: Boolean
+      * RegistrationDateTime: DateTime
+      * PasswordHash: String
+      * PasswordSalt: String
+      * HashAlgorithm: String
+      * PasswordChangeDateTime: DateTime
+      * FirstName: String
+      * MiddleName: String
+      * LastName: String
+      * About: String
+    }
+    *
+    { N.TypeDefinition
+      TypeName: StudentRoleRequest
+      BaseTypeName: Entity
+      FieldDefinitions:
+      * State: Byte
+      * User: User
+      * StudentGroup: StudentGroup
+      * Subgroup: Byte
+    }
+    *
+    { N.TypeDefinition
+      TypeName: TutorRoleRequest
+      BaseTypeName: Entity
+      FieldDefinitions:
+      * State: Byte
+      * User: User
+     

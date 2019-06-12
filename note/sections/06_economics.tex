@@ -10,7 +10,9 @@
 Существует большое количество социальных сетей, которые решают проблемы коммуникации, однако все больше людей хотят общаться с единомышленниками, которые ориентированы на конкретные профессии или интересы, приэтом получая от туда тематическией контент.
 Вследствие этого появляется необходимость в создании тематических социальных сетей, которые бы комбинировали функционал обычных социальных сетей и тематико-ориентированный функционал.
 
-Целью данного дипломного проекта является разработка мобильного приложения, представляющего собой социальную сеть, предназначенную для упрощения коммуникации больших групп пользователей, интересующихся определённой предметной областью, в данном случае --- мотоциклами.
+Целью данного дипломного проекта является позволит создать комфортные условия для построения взаимоотношений пользователей и их коммуникации в социальной сети (на примере сообщества мотоциклистов), 
+путем создания кроссплатформенного мобильного приложения.
+
 Данное приложение решает вышеперечисленные проблемы, путем объединения функционала мобильного навигатора и социальной сети, как Instagram.
 
 Исходя из текущей тенденций на рынке мобильных приложений и маркетинвого исследования, приложение будет восстребовано на рынке в течение четырех лет:
@@ -27,13 +29,14 @@
 \label{sec:economics:estimate}
 
 %Основной статьей расходов на создание ПО является заработная плата разработчиков проекта. Информация об исполнителях перечислена в таблице~\ref{table:economics:estimate:employees}. Кроме того, в таблице приведены данные об их тарифных разрядах, приведены разрядные коэффициенты, а также по формулам~\ref{eq:economics:estimate:month_wage} и~\ref{eq:economics:estimate:hour_wage} рассчитаны месячный и часовой оклады.
-Затраты на основную ЗП (заработную плату) команды разработчиков определяются исходя из состава и численности команды, размеров месячной заработной платы каждого из участников команды, а также общей трудоемкости разработки программного обеспечения. Расчет велечины основной заработной платы участников команды осуществляется по формуле:
+Затраты на основную ЗП (заработную плату) команды разработчиков определяются исходя из состава и численности команды, размеров месячной заработной платы каждого из участников команды, а также общей трудоемкости разработки программного обеспечения. Кроссплатформенная разработка существенное сократила количество разработчиков, что повлекло к снижению затрат на его разработку. Расчет велечины основной заработной платы участников команды осуществляется по формуле:
 
 \begin{equation}
 	\begin{aligned}
 		\basewagesymbol &= \sum_{i=1}^n \text{Т}_\text{чi} \cdot \text{Т}_\text{ч} \cdot \developertimefundsymbol \cdot K,
 	\end{aligned}
 	\end{equation}
+	\bigbreak
 	\begin{explanation}
 	где & $ \text{n} $ & количество исполнителей;\\
 		& $ \text{Т}_\text{чi} $ & часовая тарифная ставка i-го исполнителя, \byn;\\
@@ -46,12 +49,14 @@
 
 	\begin{equation}
 		\label{eq:economics:estimate:month_wage}
-			\text{T}_\text{м} = \text{T}_\text{м}^1 \cdot \text{T}_\text{к},
+			\text{T}_\text{м} = \text{T}_\text{м}^1 \cdot \text{T}_\text{к}, 
 		\end{equation}
+		\bigbreak
 		\begin{equation}
 		\label{eq:economics:estimate:hour_wage}
 			\text{T}_\text{ч} = \frac{\text{T}_\text{м}}{\text{Ф}_\text{р}},
 		\end{equation}
+		\bigbreak
 		\begin{explanation}
 		где & $ \text{T}_\text{м} $ & месячный оклад;\\
 			& $ \text{T}_\text{м}^1 $ & тарифная ставка 1-го разряда (положим ее равной \num{\firstratetariff} \byn);\\
@@ -90,43 +95,91 @@
 	\hline
   \end{tabular}
 \end{table}
-\vspace{-6mm}
 
-Приняв норматив дополнительной заработной платы $\additionalwageratesymbol = \additionalwageratevalue$, рассчитаем дополнительные выплаты
+Дополнительные выплаты рассчитваются по формуле:
 \begin{equation}
-	\additionalwagesymbol = \frac{\basewagesymbol \cdot \additionalwageratesymbol}{100\%} = \frac{\basewagevalue \cdot \additionalwageratevalue}{100\%} = \additionalwagevalue~\byn
-\end{equation}
+	\additionalwagesymbol = \frac{\basewagesymbol \cdot \additionalwageratesymbol}{100\%},
+	\end{equation}
+	\bigbreak
+	\begin{explanation}
+	где & $ \additionalwageratesymbol $ &норматив дополнительной заработной платы ($\additionalwageratevalue$).
+	\end{explanation}
+
+Тогда найдем дополнительные выплаты:
+\begin{flalign*}
+	\hspace*{6ex} 
+	\text{З}_\text{д} = \frac{\basewagevalue \cdot \additionalwageratevalue}{100\%} = \additionalwagevalue~\byn&&&
+	\end{flalign*}
 
 Отчисления в фонд социальной защиты населения и в фонд обязательного страхования определяются в соответствии с действующим законодательством по нормативу в процентном отношении к фонду основной и дополнительной зарплат по следующим формулам
 \begin{equation}
-\begin{aligned}
-	\ssfchargessymbol &= \frac{(\basewagesymbol + \additionalwagesymbol) \cdot \ssfratesymbol}{100\%},\\
-	\insurancechargessymbol &= \frac{(\basewagesymbol + \additionalwagesymbol) \cdot \insuranceratesymbol}{100\%}.
-\end{aligned}
-\end{equation} 
+	\ssfchargessymbol = \frac{(\basewagesymbol + \additionalwagesymbol) \cdot \ssfratesymbol}{100\%}, 
+	\end{equation}
+	\bigbreak
+	\begin{equation}
+		\insurancechargessymbol = \frac{(\basewagesymbol + \additionalwagesymbol) \cdot \insuranceratesymbol}{100\%}.
+	\end{equation}
+	\bigbreak
 
 В настоящее время нормы отчислений в ФСЗН $\ssfratesymbol~=~\ssfratevalue$ и в фонд обязательного страхования $\insuranceratesymbol~=~\insuranceratevalue$. Исходя из этого, размеры отчислений
-\begin{equation}
-\begin{aligned}
-	\ssfchargessymbol &= \frac{(\basewagevalue + \additionalwagevalue) \cdot \ssfratevalue}{100\%} = \ssfchargesvalue~\byn,\\[5mm]
-	\insurancechargessymbol &= \frac{(\basewagevalue + \additionalwagevalue) \cdot \insuranceratevalue}{100\%} = \insurancechargesvalue~\byn\\[5mm]
-\end{aligned}
-\end{equation}
+\begin{flalign*}
+		\hspace*{6ex} 
+	\ssfchargessymbol = \frac{(\basewagevalue + \additionalwagevalue) \cdot \ssfratevalue}{100\%} = \ssfchargesvalue~\byn,&&&
+\end{flalign*}
+\begin{flalign*}
+	\hspace*{6ex} 
+\insurancechargessymbol = \frac{(\basewagevalue + \additionalwagevalue) \cdot \insuranceratevalue}{100\%} = \insurancechargesvalue~\byn&&&
+\end{flalign*}
 
-Расходы по статье <<Машинное время>> включают оплату машинного времени, необходимого для разработки и отладки ПО, которое определяется по нормативам на 100 строк исходного кода. Норматив зависит от характера решаемых задач и типа ПК; для текущего проекта примем $\machinetimeratesymbol~=~\machinetimeratevalue$~\cite[приложение 6]{palitsyn}. Примем величину стоимости машино-часа $\machinehourpricesymbol~=~\machinehourpricevalue~\byn$ Тогда, применяя понижающий коэффициент \machinetimereductionratevalue, получим величину расходов
-\begin{equation}
-	\machinetimechargessymbol = \machinehourpricesymbol \cdot \frac{\totalloc}{100} \cdot \machinetimeratesymbol = \machinehourpricevalue \cdot \frac{\totallocfactor}{100} \cdot \machinetimeratevalue \cdot \machinetimereductionratevalue = \machinetimechargesvalue~\byn
-\end{equation}
+Расходы по статье <<Машинное время>> включают оплату машинного времени, необходимого для разработки и отладки ПО, которое определяется по нормативам на 100 строк исходного кода. Норматив зависит от характера решаемых задач и типа ПК; для текущего проекта примем $\machinetimeratesymbol~=~\machinetimeratevalue$~\cite[приложение 6]{palitsyn}.
 
-Расходы по статье <<Научные командировки>> определяются по нормативу в процентах к основной заработной плате. Принимая норматив равным $\businesstripratesymbol~=~\businesstripratevalue$ получим величину расходов
 \begin{equation}
-	\businesstripchargessymbol = \frac{\basewagesymbol \cdot \businesstripratesymbol}{100\%} = \frac{\basewagevalue \cdot \businesstripratevalue}{100\%} = \businesstripchargesvalue~\byn
+	\machinetimechargessymbol = \machinehourpricesymbol \cdot \frac{\totalloc}{100} \cdot \machinetimeratesymbol,
 \end{equation}
+\begin{explanation}
+	где & $ \machinehourpricesymbol $ & велечина стоимости машинного часа;\\
+		& $ \totalloc $ & количество строк исходного кода;\\
+		& $ \machinetimeratesymbol $ & норматив машинного времени.
+	\end{explanation}
 
-Расходы по статье <<Прочие затраты>> включают затраты на приобретение и подготовку специальной научно-технической информации и специальной литературы. Определяются по нормативу в процентах к основной заработной плате. Принимая норматив равным $\otherchargesratesymbol~=~\otherchargesratevalue$ получим величину расходов
+Примем величину стоимости машино-часа $\machinehourpricesymbol~=~\machinehourpricevalue~\byn$
+
+Тогда, применяя понижающий коэффициент \machinetimereductionratevalue, получим величину расходов
+\begin{flalign*}
+	\hspace*{6ex} 
+	\machinetimechargessymbol = \machinehourpricevalue \cdot \frac{\totallocfactor}{100} \cdot \machinetimeratevalue \cdot \machinetimereductionratevalue = \machinetimechargesvalue~\byn&&&
+\end{flalign*}
+
+Расходы по статье <<Научные командировки>> определяются по нормативу в процентах к основной заработной плате. 
+
 \begin{equation}
-	\otherchargessymbol = \frac{\basewagesymbol \cdot \otherchargesratesymbol}{100\%} = \frac{\basewagevalue \cdot \otherchargesratevalue}{100\%} = \otherchargesvalue~\byn
+	\businesstripchargessymbol = \frac{\basewagesymbol \cdot \businesstripratesymbol}{100\%},
 \end{equation}
+\begin{explanation}
+	где & $ \businesstripratesymbol $ & норматив начных командировок.
+	\end{explanation}
+\vspace{0.3ex}
+
+Принимая норматив равным $\businesstripratesymbol~=~\businesstripratevalue$ получим величину расходов
+\begin{flalign*}
+	\hspace*{6ex} 
+	\businesstripchargessymbol = \frac{\basewagevalue \cdot \businesstripratevalue}{100\%} = \businesstripchargesvalue~\byn&&&
+\end{flalign*}
+
+Расходы по статье <<Прочие затраты>> включают затраты на приобретение и подготовку специальной научно-технической информации и специальной литературы. Определяются по нормативу в процентах к основной заработной плате. 
+\begin{equation}
+	\otherchargessymbol = \frac{\basewagesymbol \cdot \otherchargesratesymbol}{100\%},
+\end{equation}
+\begin{explanation}
+	где & $\otherchargesratesymbol $ & норматив прочих затрат.
+	\end{explanation}
+\vspace{0.3ex}
+
+Принимая норматив равным $\otherchargesratesymbol~=~\otherchargesratevalue$ получим величину расходов
+\begin{flalign*}
+	\hspace*{6ex} 
+	\otherchargessymbol = \frac{\basewagevalue \cdot \otherchargesratevalue}{100\%} = \otherchargesvalue~\byn&&&
+\end{flalign*}
 
 Затраты по статье <<Накладные расходы>>, связанные с необходимостью  содержания  аппарата  управления,  вспомогательных хозяйств и опытных (экспериментальных) производств, а также с расходами на общехозяйственные нужды, относятся к конкретному ПО по нормативу в процентном отношении к основной заработной плате
 исполнителей. Принимая норматив равным $\overheadratesymbol~=~\overheadratevalue$ получим величину расходов
@@ -151,6 +204,7 @@
 Т.к. IT-компания является резидентом ПВТ, согласно законодательства РБ, такое предприятие освобождается от уплаты налога на прибыль и налога на добавленную стоимость.
 
 На основании расчета прибыли и уровня себестоимости рассчитаем прогнозируемую цену
+
 \begin{equation}
 	\netpricesymbol = \totalchargessymbol + \profitabilitysymbol = \totalchargesvalue + \profitabilityvalue = \netpricevalue~\byn
 \end{equation}
@@ -180,9 +234,10 @@
 	\end{explanation}
 
  Подставим значения в формулу ~\ref{eq:economics:estimate:onecopyprofit}:
- \begin{equation}
-	\onecopyprofit = \oneCopyPrice - \frac{\sellingpricevalue}{\countcopys} = \onecopyprofitvalue~\byn
-\end{equation}
+ \begin{flalign*}
+	\hspace*{6ex} 
+	\onecopyprofit = \oneCopyPrice - \frac{\sellingpricevalue}{\countcopys} = \onecopyprofitvalue~\byn&&&
+\end{flalign*}
 
 Cуммарная прибыль за год рассчитывется как:
 \begin{equation}
@@ -190,15 +245,13 @@ Cуммарная прибыль за год рассчитывется как:
 \end{equation}
 
 Следовательно прибыль от программного продукта по годам составляет:
-\begin{equation}
-	\begin{aligned}
-		\text{П}_\text{1} = \onecopyprofitvalue \cdot \countfirstyearcopys = \profitperyearvalueone~\byn,\\
-		\text{П}_\text{2} = \onecopyprofitvalue \cdot \countsecondyearcopys = \profitperyearvaluetwo~\byn,\\
-		\text{П}_\text{3} = \onecopyprofitvalue \cdot \countthirdyearcopys = \profitperyearvaluethree~\byn,\\
-		\text{П}_\text{4} = \onecopyprofitvalue \cdot \counfoursyearcopys = \profitperyearvaluefour~\byn
-	\end{aligned}
-\end{equation}
-
+\begin{flalign*}
+	\hspace*{6ex} 
+	\text{П}_\text{1} &= \onecopyprofitvalue \cdot \countfirstyearcopys = \profitperyearvalueone~\byn,\\
+	\text{П}_\text{2} &= \onecopyprofitvalue \cdot \countsecondyearcopys = \profitperyearvaluetwo~\byn,\\
+	\text{П}_\text{3} &= \onecopyprofitvalue \cdot \countthirdyearcopys = \profitperyearvaluethree~\byn,\\
+	\text{П}_\text{4} &= \onecopyprofitvalue \cdot \counfoursyearcopys = \profitperyearvaluefour~\byn&&&
+\end{flalign*}
 
 \subsection{Расчет показателей эффективности}
 \label{sec:economics:effect}
@@ -218,14 +271,13 @@ Cуммарная прибыль за год рассчитывется как:
 
 На 01.05.2019 ставка рефинансирования состовляет 10,5\%~\cite{refinancingTax}.
 Итого коэффициент дисконтирования по годам (2019 - 2022):
-\begin{equation}
-	\begin{aligned}
-		\text{\(\alpha\)}_\text{1} &= 1,\\
-		\text{\(\alpha\)}_\text{2} &= \text{(1 + \refinancingTax)}^{\text{1 - 2}} = \discontKValueOne,\\
-		\text{\(\alpha\)}_\text{3} &= \text{(1 + \refinancingTax)}^{\text{1 - 3}} = \discontKValueTwo,\\
-		\text{\(\alpha\)}_\text{4} &= \text{(1 + \refinancingTax)}^{\text{1 - 4}} = \discontKValueThree.
-	\end{aligned}
-\end{equation}
+\begin{flalign*}
+	\hspace*{6ex} 
+	\text{\(\alpha\)}_\text{1} &= 1,\\
+	\text{\(\alpha\)}_\text{2} &= \text{(1 + \refinancingTax)}^{\text{1 - 2}} = \discontKValueOne,\\
+	\text{\(\alpha\)}_\text{3} &= \text{(1 + \refinancingTax)}^{\text{1 - 3}} = \discontKValueTwo,\\
+	\text{\(\alpha\)}_\text{4} &= \text{(1 + \refinancingTax)}^{\text{1 - 4}} = \discontKValueThree.&&&
+\end{flalign*}
 
 Cведем данные расчета вэкономического эффекта в таблицу~\ref{table:economics:estimate:economEffect}.
 \begin{table}[!ht]
@@ -277,14 +329,16 @@ $ \clearProfitPerYearSymbol $ определяется по формуле:
 \end{explanation}
 
 По формуле~\ref{eq:economics:estimate:clearProfitPerYear} среднегодовую величину чистой прибыли за расчетный период:
-\begin{equation}
-	\clearProfitPerYearSymbol = \frac{\profitperyearvalueone + \profitperyearvaluetwo + \profitperyearvaluethree + \profitperyearvaluefour}{4} = \clearProfitPerYearValue~\byn
-\end{equation}
+\begin{flalign*}
+	\hspace*{6ex} 
+	\clearProfitPerYearSymbol = \frac{\profitperyearvalueone + \profitperyearvaluetwo + \profitperyearvaluethree + \profitperyearvaluefour}{4} = \clearProfitPerYearValue~\byn&&&
+\end{flalign*}
 
 Подставив данное значение в формулу~\ref{eq:economics:estimate:rentInvest} получим рентабельность инвестиций в разработку и внедрение программного продукта.
-\begin{equation}
-	\rentInvestSymbol = \frac{\clearProfitPerYearValue}{\totalchargesvalue} = 79~\%.
-\end{equation}
+\begin{flalign*}
+	\hspace*{6ex} 
+	\rentInvestSymbol = \frac{\clearProfitPerYearValue}{\totalchargesvalue} = 79~\%.&&&
+\end{flalign*}
 
 В результате технико-экономического обоснование эффективности разработки и реализации программного модуля взаимодействия с мультимедиа объектами были получены следующие значения показателей эффективности:
 \begin{itemize}

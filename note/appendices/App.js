@@ -39,9 +39,4 @@ export class App extends React.Component<{}, {}> {
             <Menu.Item as={Link} to="" activeClassName="active" />
             <Menu.Item as={Link} to="" activeClassName="active" />
           </Menu>
-          <section id="app-content">{this.props.children}</section>
-        </div>
-      </div>
-    );
-  }
 }

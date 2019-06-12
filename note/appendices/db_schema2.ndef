@@ -1,0 +1,50 @@
+
+      * Department: Department
+    }
+    *
+    { N.TypeDefinition
+      TypeName: ApprovedStudentRoleRequest
+      BaseTypeName: Entity
+      FieldDefinitions:
+      * ApprovedDateTime: DateTime
+      * StudentRoleRequest: StudentRoleRequest
+      * Approver: User
+    }
+    *
+    { N.TypeDefinition
+      TypeName: ApprovedTutorRoleRequest
+      BaseTypeName: Entity
+      FieldDefinitions:
+      * ApprovedDateTime: DateTime
+      * TutorRoleRequest: TutorRoleRequest
+      * Approver: User
+    }
+    *
+    { N.TypeDefinition
+      TypeName: Student
+      BaseTypeName: Entity
+      FieldDefinitions:
+      * User: User
+      * StudentGroups: StudentGroup[]
+    }
+    *
+    { N.TypeDefinition
+      TypeName: Tutor
+      BaseTypeName: DbObject
+      FieldDefinitions:
+      * User: User
+      * AcademicPosition: Byte
+      * AdministrativePosition: Byte
+      * AcademicDegree: Byte
+      * AcademicTitle: Byte
+      * Department: Department @BackReference(Tutors)
+      * DisciplineSections: DisciplineSection[]
+      * DisciplineMaterialSets: DisciplineMaterialSet[]
+    }
+    *
+    { N.TypeDefinition
+      TypeName: DisciplineMaterialSet
+      BaseTypeName: Entity
+      { N.TypeDefinition
+      TypeName: Faculty
+      BaseTypeName: DbObject
